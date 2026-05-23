@@ -1,60 +1,81 @@
-/* src/components/Login.css */
-.login-card {
-  background-color: #ffffff !important;
-  padding: 32px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  max-width: 400px;
-  width: 100%;
-  margin: 40px auto;
-  border: 1px solid #e2e8f0;
+.login-card { 
+  background: rgba(255, 255, 255, 0.8); 
+  backdrop-filter: blur(20px); 
+  padding: 48px; 
+  border-radius: 32px; 
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1); 
+  max-width: 440px; 
+  width: 100%; 
+  margin: auto; 
+  border: 1px solid rgba(255, 255, 255, 0.5); 
 }
-
-/* Force absolute background transparency for clean rendering and to stop copy-paste highlight bugs */
-.login-card h2,
-.login-card p,
-.login-card label,
-.login-card span {
-  background-color: transparent !important;
-  background: transparent !important;
-  box-shadow: none !important;
+.login-header h2 { 
+  margin: 0 0 8px 0; 
+  color: #020617; 
+  font-size: 32px; 
+  font-weight: 800; 
+  letter-spacing: -0.025em; 
+  text-align: center; 
 }
-
-.login-header h2 {
-  margin: 0 0 8px 0;
-  color: #0f172a;
-  font-size: 24px;
-  text-align: center;
-  font-weight: 700;
+.login-header p { 
+  margin: 0 0 40px 0; 
+  color: #64748b; 
+  font-size: 16px; 
+  text-align: center; 
 }
-
-.login-header p {
-  margin: 0 0 24px 0;
-  color: #64748b;
-  font-size: 14px;
-  text-align: center;
+.form-group { 
+  margin-bottom: 24px; 
 }
-
-.login-form .form-group {
-  margin-bottom: 20px;
-  text-align: left;
+.form-group label { 
+  display: block; 
+  font-size: 11px; 
+  font-weight: 800; 
+  color: #475569; 
+  margin-bottom: 12px; 
+  text-transform: uppercase; 
+  letter-spacing: 0.1em; 
 }
-
-.login-form label {
-  display: block;
-  font-size: 13px;
-  font-weight: 600;
-  color: #475569;
-  margin-bottom: 6px;
+.input-field { 
+  width: 100%; 
+  padding: 16px 20px; 
+  border: 2px solid #f1f5f9; 
+  border-radius: 16px; 
+  font-size: 15px; 
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+  outline: none; 
+  background: #f8fafc; 
 }
-
-.error-banner {
-  background-color: #fef2f2 !important;
-  border: 1px solid #fca5a5;
-  color: #991b1b;
-  padding: 10px 12px;
-  border-radius: 6px;
-  font-size: 13px;
-  margin-bottom: 20px;
-  text-align: center;
+.input-field:focus { 
+  border-color: #1e293b; 
+  background: #ffffff; 
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1); 
+}
+.btn-primary { 
+  background: #0f172a; 
+  color: white; 
+  padding: 16px; 
+  border-radius: 16px; 
+  width: 100%; 
+  font-weight: 600; 
+  border: none; 
+  cursor: pointer; 
+  transition: all 0.3s; 
+  font-size: 16px; 
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); 
+}
+.btn-primary:hover { 
+  background: #1e293b; 
+  transform: translateY(-2px); 
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); 
+}
+.error-banner { 
+  background: #fee2e2; 
+  border: none; 
+  color: #991b1b; 
+  padding: 14px; 
+  border-radius: 16px; 
+  font-size: 13px; 
+  margin-bottom: 24px; 
+  font-weight: 600; 
+  text-align: center; 
 }

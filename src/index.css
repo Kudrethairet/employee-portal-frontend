@@ -1,4 +1,6 @@
-/* src/index.css */
+/* ==========================================
+   1. Document Setup & Global Resets
+   ========================================== */
 body {
   margin: 0;
   padding: 0;
@@ -11,12 +13,13 @@ body {
   min-height: 100vh;
 }
 
-/* Base box-sizing rules for predictable layouts */
 *, *::before, *::after {
   box-sizing: border-box;
 }
 
-/* Modern, simple container layout */
+/* ==========================================
+   2. Layout Containers
+   ========================================== */
 .app-container {
   width: 100%;
   max-width: 1200px;
@@ -26,12 +29,13 @@ body {
   align-items: center;
 }
 
-/* Essential helper utilities */
 .w-full {
   width: 100% !important;
 }
 
-/* Minimal Input Styling */
+/* ==========================================
+   3. Inputs & UI Utility Fields
+   ========================================== */
 .input-field {
   display: block;
   width: 100%;
@@ -50,7 +54,9 @@ body {
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
 }
 
-/* Direct Action Buttons */
+/* ==========================================
+   4. Buttons & Active Triggers
+   ========================================== */
 .btn-primary {
   display: block;
   width: 100%;
@@ -71,6 +77,6 @@ body {
 }
 
 .btn-primary:disabled {
-  background-color: #93c5fd;
+  background-color: #5a5e63; 
   cursor: not-allowed;
 }

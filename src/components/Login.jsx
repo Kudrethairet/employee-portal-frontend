@@ -1,6 +1,5 @@
-// src/components/Login.jsx
 import React, { useState } from 'react';
-import './Login.css'; // Simple custom component styles
+import './Login.css';
 
 export default function Login({ onLoginSuccess }) {
   const [email, setEmail] = useState('');
@@ -13,10 +12,9 @@ export default function Login({ onLoginSuccess }) {
     setError('');
     setLoading(true);
 
-    // Mock Authentication Logic (For frontend development)
     setTimeout(() => {
       setLoading(false);
-      if (email === 'admin@company.com' && password === 'admin123') {
+      if (email === 'admin@company.com' && password === '1234') {
         const mockUser = {
           name: 'Alice Dev',
           role: 'Software Architect',
@@ -24,7 +22,7 @@ export default function Login({ onLoginSuccess }) {
         };
         onLoginSuccess(mockUser);
       } else {
-        setError('Invalid credentials. Try: admin@company.com / admin123');
+        setError('Invalid credentials. Try: admin@company.com / 1234');
       }
     }, 800);
   };
