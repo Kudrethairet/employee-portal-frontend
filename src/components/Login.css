@@ -1,0 +1,60 @@
+/* src/components/Login.css */
+.login-card {
+  background-color: #ffffff !important;
+  padding: 32px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  max-width: 400px;
+  width: 100%;
+  margin: 40px auto;
+  border: 1px solid #e2e8f0;
+}
+
+/* Force absolute background transparency for clean rendering and to stop copy-paste highlight bugs */
+.login-card h2,
+.login-card p,
+.login-card label,
+.login-card span {
+  background-color: transparent !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.login-header h2 {
+  margin: 0 0 8px 0;
+  color: #0f172a;
+  font-size: 24px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.login-header p {
+  margin: 0 0 24px 0;
+  color: #64748b;
+  font-size: 14px;
+  text-align: center;
+}
+
+.login-form .form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.login-form label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #475569;
+  margin-bottom: 6px;
+}
+
+.error-banner {
+  background-color: #fef2f2 !important;
+  border: 1px solid #fca5a5;
+  color: #991b1b;
+  padding: 10px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  margin-bottom: 20px;
+  text-align: center;
+}
