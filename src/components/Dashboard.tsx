@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
 import './Dashboard.css';
+import { User } from '../types'; // Import from central file
 
-interface User {
-  name: string;
-  role: string;
-  department: string;
-}
+
 
 interface DashboardProps {
   user: User;

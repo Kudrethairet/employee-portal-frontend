@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
 import './Login.css';
+import { User } from '../types'; // Import from central file
 
-interface User {
-  name: string;
-  role: string;
-  department: string;
-}
+
 
 interface LoginProps {
   onLoginSuccess: (user: User) => void;
