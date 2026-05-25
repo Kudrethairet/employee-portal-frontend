@@ -1,15 +1,25 @@
 import React, { useState } from 'react';
 import './Dashboard.css';
 
-export default function Dashboard({ user }) {
-  const [clockedIn, setClockedIn] = useState(false);
-  const [logs, setLogs] = useState([]);
+interface User {
+  name: string;
+  role: string;
+  department: string;
+}
 
-  const handleClockToggle = () => {
-    const timeString = new Date().toLocaleTimeString();
-    const nextState = !clockedIn;
+interface DashboardProps {
+  user: User;
+}
+
+export default function Dashboard({ user }: DashboardProps) {
+  const [clockedIn, setClockedIn] = useState<boolean>(false);
+  const [logs, setLogs] = useState<string[]>([]);
+
+  const handleClockToggle = (): void => {
+    const timeString: string = new Date().toLocaleTimeString();
+    const nextState: boolean = !clockedIn;
     setClockedIn(nextState);
-    setLogs(prev => [`${nextState ? '📥 Clocked In' : '📤 Clocked Out'} at ${timeString}`, ...prev]);
+    setLogs((prev: string[]) => [`${nextState ? '📥 Clocked In' : '📤 Clocked Out'} at ${timeString}`, ...prev]);
   };
 
   return (
@@ -40,7 +50,7 @@ export default function Dashboard({ user }) {
             <div className="logs-wrapper">
               <span className="logs-header">Shift Activities Log:</span>
               <div className="logs-list">
-                {logs.map((log, index) => (
+                {logs.map((log: string, index: number) => (
                   <p key={index} className="log-row">{log}</p>
                 ))}
               </div>

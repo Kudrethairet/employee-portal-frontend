@@ -1,13 +1,30 @@
-// Employees.js
 import React, { useState, useEffect } from 'react';
+import './Employees.css';
 
-function Employees() {
-  const [employees, setEmployees] = useState([]);
+interface User {
+  name: string;
+  role: string;
+  department: string;
+}
+
+interface Employee {
+  id: number;
+  firstName: string;
+  lastName: string;
+  email: string;
+}
+
+interface EmployeesProps {
+  user: User;
+}
+
+function Employees({ user }: EmployeesProps) {
+  const [employees, setEmployees] = useState<Employee[]>([]);
 
   useEffect(() => {
     fetch('/api/employees')
       .then((res) => res.json())
-      .then((data) => setEmployees(data))
+      .then((data: Employee[]) => setEmployees(data))
       .catch((err) => console.error("Error fetching:", err));
   }, []);
 
@@ -23,7 +40,7 @@ function Employees() {
           </tr>
         </thead>
         <tbody>
-          {employees.map((emp) => (
+          {employees.map((emp: Employee) => (
             <tr key={emp.id}>
               <td>{emp.firstName}</td>
               <td>{emp.lastName}</td>

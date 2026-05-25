@@ -4,12 +4,18 @@ import Dashboard from './components/Dashboard';
 import Employees from './components/Employees';
 import './index.css';
 
-export default function App() {
-  const [currentUser, setCurrentUser] = useState(null);
-  const [activeView, setActiveView] = useState('dashboard');
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+interface User {
+  name: string;
+  role: string;
+  department: string;
+}
 
-  const handleLogout = () => {
+export default function App() {
+  const [currentUser, setCurrentUser] = useState<User | null>(null);
+  const [activeView, setActiveView] = useState<string>('dashboard');
+  const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
+
+  const handleLogout = (): void => {
     setIsDropdownOpen(false);
     setCurrentUser(null);
   };
@@ -39,7 +45,6 @@ export default function App() {
             <div className="dropdown-menu">
               <button className="dropdown-item" onClick={handleLogout}>Logout</button>
               <button className="dropdown-item">Profile</button>
-
             </div>
           )}
         </div>

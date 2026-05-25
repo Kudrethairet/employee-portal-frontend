@@ -1,13 +1,23 @@
 import React, { useState } from 'react';
 import './Login.css';
 
-export default function Login({ onLoginSuccess }) {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
-  const [loading, setLoading] = useState(false);
+interface User {
+  name: string;
+  role: string;
+  department: string;
+}
 
-  const handleSubmit = async (e) => {
+interface LoginProps {
+  onLoginSuccess: (user: User) => void;
+}
+
+export default function Login({ onLoginSuccess }: LoginProps) {
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+  const [error, setError] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError('');
     setLoading(true);
@@ -15,7 +25,7 @@ export default function Login({ onLoginSuccess }) {
     setTimeout(() => {
       setLoading(false);
       if (email === 'admin@company.com' && password === '1234') {
-        const mockUser = {
+        const mockUser: User = {
           name: 'Alice Dev',
           role: 'Software Architect',
           department: 'Engineering'
@@ -44,7 +54,7 @@ export default function Login({ onLoginSuccess }) {
             className="input-field"
             placeholder="name@company.com"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
             required 
           />
         </div>
@@ -56,7 +66,7 @@ export default function Login({ onLoginSuccess }) {
             className="input-field"
             placeholder="••••••••"
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
             required 
           />
         </div>
