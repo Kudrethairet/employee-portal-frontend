@@ -22,7 +22,7 @@ export default function Login({ onLoginSuccess }) {
         };
         onLoginSuccess(mockUser);
       } else {
-        setError('Invalid credentials. Try: admin@company.com / 1234');
+        setError('Invalid credentials.');
       }
     }, 800);
   };

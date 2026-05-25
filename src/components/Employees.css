@@ -1,4 +1,4 @@
-/* Sidebar and Layout */
+/* Sidebar and Layout
 .app-container {
   width: 100%;
   max-width: 1200px;
@@ -58,6 +58,8 @@
 }
 
 /* Updated Table Styles */
+
+/*
 .employee-table {
   width: 100%;
   border-collapse: collapse;
@@ -84,4 +86,4 @@
 
 .employee-table tr:hover {
   background-color: #f1f5f9;
-}
+} */

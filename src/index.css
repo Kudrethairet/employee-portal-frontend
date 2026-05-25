@@ -27,6 +27,7 @@ body {
   padding-bottom: 24px;
   margin-bottom: 32px;
   border-bottom: 1px solid #e2e8f0;
+  position: relative;
 }
 
 .portal-brand {
@@ -43,6 +44,7 @@ body {
   border-radius: 8px;
   font-weight: 600;
   cursor: pointer;
+  min-width: 90px;
 }
 
 .main-portal-wrapper {
@@ -261,4 +263,44 @@ body {
   font-size: 14px;
   color: #334155;
   line-height: 1.5;
+}
+
+/* User Menu & Dropdown Styling */
+.user-menu-container {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 0px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  padding: 4px 0;
+  width: 90px;
+  z-index: 100;
+}
+
+.dropdown-item {
+  display: block;
+  width: 100%;
+  padding: 6px 0;
+  border: none;
+  background: none;
+  text-align: center;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+  color: #334155;
+}
+/* Thin line between items */
+.dropdown-item:first-child {
+  border-bottom: 1px solid #e2e8f0;
+  margin-bottom: 4px;
+  padding-bottom: 8px;
 }

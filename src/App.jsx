@@ -7,8 +7,12 @@ import './index.css';
 export default function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [activeView, setActiveView] = useState('dashboard');
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  const handleLogout = () => setCurrentUser(null);
+  const handleLogout = () => {
+    setIsDropdownOpen(false);
+    setCurrentUser(null);
+  };
 
   if (!currentUser) {
     return (
@@ -22,7 +26,23 @@ export default function App() {
     <div className="app-container">
       <header className="portal-top-bar">
         <h2 className="portal-brand">CORE CORPORATE PORTAL</h2>
-        <button className="user-trigger" onClick={handleLogout}>Logout</button>
+        
+        <div className="user-menu-container">
+          <button 
+            className="user-trigger" 
+            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+          >
+            {currentUser.name.split(' ')[0]}
+          </button>
+
+          {isDropdownOpen && (
+            <div className="dropdown-menu">
+              <button className="dropdown-item" onClick={handleLogout}>Logout</button>
+              <button className="dropdown-item">Profile</button>
+
+            </div>
+          )}
+        </div>
       </header>
 
       <div className="main-portal-wrapper">
@@ -41,7 +61,6 @@ export default function App() {
           </button>
         </nav>
 
-        {/* Dashboard is rendered here when activeView is 'dashboard' */}
         <main className="portal-content">
           {activeView === 'dashboard' ? (
             <Dashboard user={currentUser} />
