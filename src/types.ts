@@ -1,5 +1,7 @@
 export interface User {
-  name: string;
-  role: string;
-  department: string;
+  id: number;
+  firstName: string;
+  lastName: string;
+  email: string;
+  // name and department don't exist in your current Java entity
 }

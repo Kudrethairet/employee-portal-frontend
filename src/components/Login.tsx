@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import './Login.css';
-import { User } from '../types'; // Import from central file
-
-
+import { User } from '../types'; 
 
 interface LoginProps {
   onLoginSuccess: (user: User) => void;
@@ -19,19 +17,29 @@ export default function Login({ onLoginSuccess }: LoginProps) {
     setError('');
     setLoading(true);
 
-    setTimeout(() => {
-      setLoading(false);
-      if (email === 'admin@company.com' && password === '1234') {
-        const mockUser: User = {
-          name: 'Alice Dev',
-          role: 'Software Architect',
-          department: 'Engineering'
-        };
-        onLoginSuccess(mockUser);
+    try {
+      const response = await fetch('http://localhost:8080/api/employees/login', {
+        method: 'POST',
+        headers: { 
+          'Content-Type': 'application/json' 
+        },
+        body: JSON.stringify({ email, password })
+      });
+
+      if (response.ok) {
+        // Successfully authenticated, parse the user object from DB
+        const userData: User = await response.json();
+        console.log('User data:', userData);
+        onLoginSuccess(userData);
       } else {
-        setError('Invalid credentials.');
+        // Handle unauthorized or server errors
+        setError('Invalid email or password.');
       }
-    }, 800);
+    } catch (err) {
+      setError('Server connection error. Please ensure the backend is running.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (

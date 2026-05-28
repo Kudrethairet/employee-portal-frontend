@@ -2,13 +2,8 @@ import React, { useState } from 'react';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 import Employees from './components/Employees';
+import { User } from './types'; 
 import './index.css';
-
-interface User {
-  name: string;
-  role: string;
-  department: string;
-}
 
 export default function App() {
   const [currentUser, setCurrentUser] = useState<User | null>(null);
@@ -32,19 +27,13 @@ export default function App() {
     <div className="app-container">
       <header className="portal-top-bar">
         <h2 className="portal-brand">CORE CORPORATE PORTAL</h2>
-        
         <div className="user-menu-container">
-          <button 
-            className="user-trigger" 
-            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-          >
-            {currentUser.name.split(' ')[0]}
+          <button className="user-trigger" onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
+            {currentUser.firstName}
           </button>
-
           {isDropdownOpen && (
             <div className="dropdown-menu">
               <button className="dropdown-item" onClick={handleLogout}>Logout</button>
-              <button className="dropdown-item">Profile</button>
             </div>
           )}
         </div>
@@ -52,26 +41,11 @@ export default function App() {
 
       <div className="main-portal-wrapper">
         <nav className="sidebar">
-          <button
-            className={`nav-item ${activeView === 'dashboard' ? 'active' : ''}`}
-            onClick={() => setActiveView('dashboard')}
-          >
-            Workday
-          </button>
-          <button
-            className={`nav-item ${activeView === 'employees' ? 'active' : ''}`}
-            onClick={() => setActiveView('employees')}
-          >
-            Employees
-          </button>
+          <button className={`nav-item ${activeView === 'dashboard' ? 'active' : ''}`} onClick={() => setActiveView('dashboard')}>Workday</button>
+          <button className={`nav-item ${activeView === 'employees' ? 'active' : ''}`} onClick={() => setActiveView('employees')}>Employees</button>
         </nav>
-
         <main className="portal-content">
-          {activeView === 'dashboard' ? (
-            <Dashboard user={currentUser} />
-          ) : (
-            <Employees user={currentUser} />
-          )}
+          {activeView === 'dashboard' ? <Dashboard user={currentUser} /> : <Employees user={currentUser} />}
         </main>
       </div>
     </div>

@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import './Dashboard.css';
-import { User } from '../types'; // Import from central file
-
-
+import { User } from '../types'; 
 
 interface DashboardProps {
   user: User;
@@ -11,6 +9,11 @@ interface DashboardProps {
 export default function Dashboard({ user }: DashboardProps) {
   const [clockedIn, setClockedIn] = useState<boolean>(false);
   const [logs, setLogs] = useState<string[]>([]);
+
+  // We map the database fields to the fields your UI expects
+  const displayName = `${user.firstName} ${user.lastName}`;
+  const displayRole = "Employee"; // Fallback role
+  const displayDept = "General";  // Fallback department
 
   const handleClockToggle = (): void => {
     const timeString: string = new Date().toLocaleTimeString();
@@ -22,8 +25,9 @@ export default function Dashboard({ user }: DashboardProps) {
   return (
     <>
       <header className="dash-header">
-        <h1 className="dash-title">Welcome, {user.name.split(' ')[0]} Dev</h1>
-        <p className="role-tag">{user.role} | Dept: {user.department}</p>
+        {/* Using the mapped name here instead of user.name */}
+        <h1 className="dash-title">Welcome, {displayName.split(' ')[0]} Dev</h1>
+        <p className="role-tag">{displayRole} | Dept: {displayDept}</p>
       </header>
 
       <div className="dash-grid">
